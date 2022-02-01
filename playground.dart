@@ -57,8 +57,15 @@ main() {
     errorFunc();
   } catch (e, s) {
     // 仮引数2つ目はstack traceを返却する
-    print(s);
+    // print(s);
   }
+
+  testCascade();
+
+  var mixinPerson = MixinPerson();
+
+  mixinPerson.printName();
+  mixinPerson.printTest('mixin test');
 }
 
 String returnStringFunction() {
@@ -82,3 +89,29 @@ void errorFunc() {
     print('finally');
   }
 }
+
+void testCascade() {
+  var stringBuffer = StringBuffer();
+  stringBuffer
+    ..write("first")
+    ..writeAll(["second", "third"], ' ')
+    ..toString();
+  print(stringBuffer);
+}
+
+class Person {
+  final String name = 'taro';
+  final String surName = 'Yamada';
+
+  void printName() {
+    print('$name');
+  }
+}
+
+mixin MixinExmaple {
+  void printTest(String test) {
+    print('$test');
+  }
+}
+
+class MixinPerson extends Person with MixinExmaple {}
