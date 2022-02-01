@@ -48,4 +48,19 @@ main() {
       print('b');
       continue a;
   }
+
+  print(returnStringFunction());
+  print(onelineFunction(5, 8));
+  optionalArgs();
+}
+
+String returnStringFunction() {
+  return "some strings";
+}
+
+int onelineFunction(a, b) => a + b;
+
+void optionalArgs({bool? hasSomething = true, int? someInt = 5}) {
+  print('$hasSomething');
+  print('$someInt');
 }
