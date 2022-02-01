@@ -30,4 +30,22 @@ main() {
   // parse
   print(int.parse('55'));
   print(56.toString());
+
+  // map
+  Map h = {'first': 1, 'second': 2};
+  h.forEach((key, value) {
+    print('$key : $value');
+  });
+
+  // switch
+  var letter = 'b';
+  switch (letter) {
+    a:
+    case 'a':
+      print('a');
+      break;
+    case 'b':
+      print('b');
+      continue a;
+  }
 }
