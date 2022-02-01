@@ -52,6 +52,13 @@ main() {
   print(returnStringFunction());
   print(onelineFunction(5, 8));
   optionalArgs();
+
+  try {
+    errorFunc();
+  } catch (e, s) {
+    // 仮引数2つ目はstack traceを返却する
+    print(s);
+  }
 }
 
 String returnStringFunction() {
@@ -63,4 +70,15 @@ int onelineFunction(a, b) => a + b;
 void optionalArgs({bool? hasSomething = true, int? someInt = 5}) {
   print('$hasSomething');
   print('$someInt');
+}
+
+void errorFunc() {
+  try {
+    throw Exception('exception');
+  } on Exception catch (e) {
+    print(e);
+    rethrow;
+  } finally {
+    print('finally');
+  }
 }
